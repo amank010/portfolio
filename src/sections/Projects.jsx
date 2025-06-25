@@ -115,6 +115,40 @@ const Projects = () => {
             </div>
           </div>
         </div>
+
+
+        <div className="col-span-1 xl:span-3">
+          <div className="w-full h-full border border-neutral-200  bg-white/20 backdrop-blur-md rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+            <h1 className="text-2xl font-medium text-center">
+              Portfolio Website
+            </h1>
+            <img
+            onClick={()=>window.open("https://portfolio-wine-pi-12.vercel.app")}
+              className="cursor-pointer w-full rounded-md h-fit object-contain"
+              src="/assets/portfolio.png"
+              alt=""
+            />
+            <div>
+              <div className="flex justify-between my-2">
+                <button
+                onClick={()=>window.open("https://github.com/amank010/portfolio")}
+                className="cursor-pointer border border-black rounded-full px-4 py-1 hover:bg-black hover:text-white ease-in-out duration-300">
+                  Github
+                </button>
+                <button
+                onClick={() => window.open("https://portfolio-wine-pi-12.vercel.app")}
+                className="cursor-pointer border border-black rounded-full px-4 py-1 hover:bg-black hover:text-white ease-in-out duration-300">
+                  Live
+                </button>
+              </div>
+              <p className="text-[#656565] text-base">
+                Built my 3D portfolio website using three.js, React.js React Fiber and Tailwind CSS.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </section>
   );
