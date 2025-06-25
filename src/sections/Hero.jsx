@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import React, { Suspense } from 'react'
 
 import CanvasLoader from '../components/CanvasLoader.jsx'
-import Laptop from '../components/laptop.jsx'
+import Laptop from '../components/Laptop.jsx'
 // import { Leva, useControls } from 'leva'
 import MediaQuery, { useMediaQuery } from 'react-responsive'
 
