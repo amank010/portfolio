@@ -7,11 +7,15 @@ Title: MacBook Pro 2021
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 const Laptop = (props)=> {
+
+    const monitorTexture = useTexture('/assets/monitor.png')
+
+    const screenTexture = useTexture("/assets/baseColor.png")
 
     const targetRef = useRef();
     const lidRef = useRef();
@@ -49,21 +53,31 @@ const Laptop = (props)=> {
           castShadow
           receiveShadow
           geometry={nodes.Object_6.geometry}
-          material={materials.MacBookPro}
-        />
+          material={materials.MacBookPro}>
+            
+          {/* <meshMatcapMaterial map={screenTexture} /> */}
+        </mesh>
+        
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Object_8.geometry}
           material={materials.MacBookPro}
-        />
+        >
+            
+            
+        </mesh>
+
       </group>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Object_4.geometry}
         material={materials.MacBookPro}
-      />
+      >
+
+        
+      </mesh>
     </group>
   )
 }

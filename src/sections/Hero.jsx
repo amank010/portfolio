@@ -6,6 +6,7 @@ import CanvasLoader from '../components/CanvasLoader.jsx'
 import Laptop from '../components/Laptop.jsx'
 // import { Leva, useControls } from 'leva'
 import MediaQuery, { useMediaQuery } from 'react-responsive'
+import HeroCamera from '../components/HeroCamera.jsx'
 
 const Hero = () => {
 
@@ -73,6 +74,7 @@ const Hero = () => {
             <Suspense 
             fallback={<CanvasLoader/>}>
             <PerspectiveCamera makeDefault position={[0,1,30]}/>
+            <HeroCamera>
             <Laptop 
             // scale={30} 
             // position={[0,0,0]} 
@@ -81,6 +83,7 @@ const Hero = () => {
             rotation={[0, Math.PI/7, 0]}
             position={[-1, -3, 2]} 
             />
+            </HeroCamera>
              
             <ambientLight intensity={1}/>
             <directionalLight position={[10,10,10]}/>
