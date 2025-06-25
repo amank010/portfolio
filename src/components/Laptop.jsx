@@ -8,12 +8,43 @@ Title: MacBook Pro 2021
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Laptop = (props)=> {
+
+    const targetRef = useRef();
+    const lidRef = useRef();
+
+    useGSAP(()=>{
+        gsap.to(targetRef.current.position, {
+            y: targetRef.current.position.y -2,
+        duration: 2,
+        repeat: -1,
+    yoyo: true,
+    ease: 'power1.inOut',
+})
+    gsap.to(lidRef.current.rotation, {
+        z: lidRef.current.rotation.z -1.5,
+        duration: 2,
+    })
+
+    gsap.to(targetRef.current.rotation, {
+        y: targetRef.current.rotation.y-5.5,
+        duration: 2,
+    })
+
+    gsap.to(targetRef.current.position, {
+        z: targetRef.current.position.z -10,
+        duration: 2,
+    })
+
+    })
+
   const { nodes, materials } = useGLTF('/models/macbook_pro_2021.glb')
   return (
-    <group {...props} dispose={null}>
-      <group position={[0.121, 0.007, 0]}>
+    <group {...props} dispose={null} ref={targetRef} position={[0, -3, 20]} rotation={[0, 0, 0]}>
+      <group position={[0.121, 0.007, 0]} ref={lidRef} rotation={[0, 0, 1.5]}>
         <mesh
           castShadow
           receiveShadow

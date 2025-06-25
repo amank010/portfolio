@@ -4,8 +4,9 @@ import Hero from './sections/Hero'
 
 const App = () => {
   return (
-    <div className=' bg-gradient-to-b from-0% from-[#032a5a] to-60% to-[#000000]'>
-      <div className='max-w-7xl mx-auto'>
+    
+    <div className='relative min-h-screen w-full bg-[radial-gradient(ellipse_at_top,_rgba(0,102,255,0.4)_20%,_transparent_90%)] items-center justify-center'>
+      <div className='max-w-8xl mx-auto '>
       <Navbar/>
       <Hero/>
 
