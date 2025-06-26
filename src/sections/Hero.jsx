@@ -56,13 +56,13 @@ const Hero = () => {
   // const sizes= calculateSizes(isMobile, isTablet, isSmall);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-visible ">
+    <div className="min-h-screen flex flex-col relative ">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 sm:px-10 px-5">
         <p className=" bg-clip-text text-transparent bg-gradient-to-r from-[#71f1ff] from-30%  to-[#2d27e5] to-70% text-2xl sm:text-3xl font-medium text-center">
           Hi, I am Aman!
           <span className="waving-hand">👋</span>
         </p>
-        <p className="text-white text-center lg:text-[300px]  text-5xl font-bold">
+        <p className="text-white text-center lg:text-[200px] text-5xl font-bold">
           PORTFOLIO
         </p>
       </div>
