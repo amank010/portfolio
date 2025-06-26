@@ -2,10 +2,10 @@ import React from "react";
 
 const Projects = () => {
   return (
-    <section id="projects" className="my-20 sm:px-20 px-10">
+    <section id="projects" className="scroll-mt-24 my-20 sm:px-50 px-15">
       <h1 className="text-5xl font-medium mb-7">Projects</h1>
       <div className="grid xl:grid-cols-2 xl:grid-rows-1 md:grid-cols-2 grid-cols-1 gap-5 h-full">
-        {" "}
+        
         {/*  grid */}
         <div className="col-span-1 xl:row-span-1">
           {/*  grid container, maybe one project */}

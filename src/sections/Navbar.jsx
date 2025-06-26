@@ -1,13 +1,57 @@
 import React, { useState } from 'react'
 
 
-const NavItems=()=>{
+const NavItems=({setIsOpen})=>{
+
+    const handleScroll = (id)=>{
+        const section = document.getElementById(id);
+        if(section){
+            section.scrollIntoView({behavior:"smooth"});
+        }
+    }
+
     return(
         <ul className='flex sm:absolute sm:right-0 sm:px-5 sm:py-0.5 flex-col sm:flex-row gap-6'>
-            {["Home", "About", "Work", "Contact"].map((item, index)=>(<li key={index} className='text-neutral-400 hover:text-black font-light text-lg transition-colors nav-li'>
+            {/* {["Home", "Work", "Contact", "Resume"].map((item, index)=>(<li key={index} className='text-neutral-500 hover:text-black font-light text-lg transition-colors nav-li'>
                 <a href="/" className='nav-li_a'>
                 {item}</a>
-                </li>))}
+                
+                </li>))} */}
+
+            <li className=' text-neutral-500 hover:text-black font-light text-lg transition-colors'>
+                <button className='cursor-pointer' onClick={()=>{window.scrollTo({top:0, behavior:"smooth"});
+                setIsOpen(false);
+                }
+            }>
+                Home
+                </button>
+                </li>
+
+            <li className='cursor-pointer text-neutral-500 hover:text-black font-light text-lg transition-colors'>
+                <button className='cursor-pointer' onClick={()=>{handleScroll('projects');
+                setIsOpen(false);
+                }
+                }>
+                Work
+                </button>
+                </li>
+            <li className='cursor-pointer text-neutral-500 hover:text-black font-light text-lg transition-colors'>
+                <button className='cursor-pointer' onClick={()=>{handleScroll('about');
+                setIsOpen(false);
+                }}>
+
+                About
+                </button>
+                </li>
+
+
+            <li className='cursor-pointer text-neutral-500 hover:text-black font-light text-lg transition-colors'>
+                <button className='cursor-pointer' onClick={()=>window.open("https://docs.google.com/document/d/1ozvuOFXaB7C1NroXLmHuafIx_3Xz6eM5NZraSSS4huk/edit?usp=sharing")}>
+                Resume
+                </button>
+                
+                
+                </li>
         </ul>
     )
 }
@@ -33,17 +77,17 @@ const Navbar = () => {
             </div>
 
             <button onClick={toggleMenu} className=' my-auto focus-outline-none sm:hidden flex' aria-label='Toggle menu'>
-                <img src={isOpen?"assets/close.svg" : "/assets/menu.svg"} alt="toggle" className='w-6 h-6' />
+                <img src={isOpen?"assets/close.svg" : "/assets/menu.svg"} alt="toggle" className='w-6 h-6 invert' />
             </button>
 
             <nav className='hidden sm:flex'>
-                <NavItems/>
+                <NavItems /> 
             </nav>
         </div>
       </div>
-      <div className={`nav-sidebar ${isOpen ? 'max-h-screen':'max-h-0'}`}>
+      <div className={`nav-sidebar transition-[max-height] duration-500 ease-in-out ${isOpen ? 'max-h-screen':'max-h-0'}`}>
         <nav className='p-5 sm:hidden'>
-            <NavItems/>
+            <NavItems setIsOpen={setIsOpen}/>
         </nav>
       </div>
 

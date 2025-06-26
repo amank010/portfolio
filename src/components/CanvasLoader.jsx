@@ -9,7 +9,7 @@ const CanvasLoader = () => {
       as="div"
       center
       style={{
-        dispplay: 'flex',
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',

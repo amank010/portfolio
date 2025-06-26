@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
 import Projects from './sections/Projects'
+import About from './sections/About'
 
 const App = () => {
 
@@ -12,9 +13,20 @@ const App = () => {
       const scrollY = window.scrollY;
       const projectOffset = document.getElementById('projects')?.offsetTop || 0;
 
-      setIsProject(scrollY + window.innerHeight > projectOffset +100);
+      const aboutOffset = document.getElementById('about')?.offsetTop || 0;
+
+      if(scrollY + window.innerHeight > aboutOffset +100){
+        setIsProject('about');
+      }else if(scrollY + window.innerHeight > projectOffset +100){
+        setIsProject('projects');
+      }else{
+        setIsProject('home');
+      }
     };
     window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
+
     return()=>window.removeEventListener('scroll', handleScroll);
   },[]);
 
@@ -22,11 +34,15 @@ const App = () => {
   return (
     <div className='relative min-h-screen w-full'>
       {/* blue gradient */}
-      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none ${isProject ? 'opacity-0' : 'opacity-100'} bg-[radial-gradient(ellipse_at_top,_rgba(0,102,255,0.4)_20%,_transparent_90%)] `}/>
+      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none ${isProject==='home' ? 'opacity-100' : 'opacity-0'} bg-[radial-gradient(ellipse_at_top,_rgba(0,102,255,0.4)_20%,_transparent_90%)] `}/>
       
 
       {/* violet */}
-      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none ${isProject ? 'opacity-100' : 'opacity-0'} bg-[radial-gradient(ellipse_at_top,_rgba(138,43,226,0.7)_20%,_white_90%)] `}/>
+      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none ${isProject==='projects' ? 'opacity-100' : 'opacity-0'} bg-[radial-gradient(ellipse_at_top,_rgba(138,43,226,0.7)_20%,_white_90%)] `}/>
+
+
+      {/* violet */}
+      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none ${isProject==='about' ? 'opacity-100' : 'opacity-0'} bg-[radial-gradient(ellipse_at_top,_rgba(0,128,64,1)_30%,_white_90%)] `}/>
         
 
   
@@ -34,6 +50,7 @@ const App = () => {
       <Navbar/>
       <Hero/>
       <Projects/>
+      <About/>
       </div>
     
     </div>
