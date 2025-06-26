@@ -76,11 +76,15 @@ const About = () => {
 
           <div>
             <div className="flex">
-                <button className="md:text-xl px-2 py-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300">
+                <button
+                onClick={()=>window.open("https://docs.google.com/document/d/1ozvuOFXaB7C1NroXLmHuafIx_3Xz6eM5NZraSSS4huk/edit?usp=sharing")} 
+                className="md:text-xl px-2 py-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300">
                     My Resume 📄
                 </button>
 
-                <button className="md:text-xl py-2 ml-auto px-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300 ">
+                <button 
+                onClick={()=>window.open("https://wa.me/918130703182")}
+                className="md:text-xl py-2 ml-auto px-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300 ">
                     Contact Me 📞
                 </button>
             </div>
