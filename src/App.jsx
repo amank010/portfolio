@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
 import Projects from './sections/Projects'
@@ -6,14 +6,15 @@ import About from './sections/About'
 
 const App = () => {
 
-  const [isProject, setIsProject] = useState(false);
+  const [isProject, setIsProject] = useState('home');
 
   useEffect(()=>{
+    const projectOffset = document.getElementById('projects')?.offsetTop || 0;
+    const aboutOffset = document.getElementById('about')?.offsetTop || 0;
+    
     const handleScroll = () => {
+      localStorage.setItem('scrollY', window.scrollY.toString()); //save scroll position
       const scrollY = window.scrollY;
-      const projectOffset = document.getElementById('projects')?.offsetTop || 0;
-
-      const aboutOffset = document.getElementById('about')?.offsetTop || 0;
 
       if(scrollY + window.innerHeight > aboutOffset +100){
         setIsProject('about');
@@ -29,6 +30,19 @@ const App = () => {
 
     return()=>window.removeEventListener('scroll', handleScroll);
   },[]);
+
+  //restore scroll position
+useLayoutEffect(() => {
+  const savedScrollY = localStorage.getItem('scrollY');
+  if (savedScrollY !== null) {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({
+        top: parseInt(savedScrollY),
+        behavior: 'auto', // Use 'auto' here for immediate jump
+      });
+    });
+  }
+}, []);
 
 
   return (

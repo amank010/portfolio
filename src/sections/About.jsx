@@ -4,6 +4,7 @@ import Laptop from "../components/Laptop";
 import { Center, OrbitControls } from "@react-three/drei";
 import CanvasLoader from "../components/CanvasLoader";
 import Dtu from "../components/Dtu";
+import DtuAnim from "../components/DtuAnim";
 
 const About = () => {
   return (
@@ -78,13 +79,13 @@ const About = () => {
             <div className="flex">
                 <button
                 onClick={()=>window.open("https://docs.google.com/document/d/1ozvuOFXaB7C1NroXLmHuafIx_3Xz6eM5NZraSSS4huk/edit?usp=sharing")} 
-                className="md:text-xl px-2 py-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300">
+                className="md:text-xl px-2 py-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300 border-neutral-200 bg-white/20 backdrop-blur-md">
                     My Resume 📄
                 </button>
 
                 <button 
                 onClick={()=>window.open("https://wa.me/918130703182")}
-                className="md:text-xl py-2 ml-auto px-2 border rounded-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300 ">
+                className="md:text-xl py-2 ml-auto px-2 border rounded-md border-neutral-200 bg-white/20 backdrop-blur-md cursor-pointer hover:bg-black hover:text-white ease-in-out duration-300 ">
                     Contact Me 📞
                 </button>
             </div>
@@ -93,12 +94,12 @@ const About = () => {
 
 
         <div className="border border-neutral-200  bg-white/20 backdrop-blur-md rounded-lg sm:p-7 p-4 flex flex-col gap-5">
-              <Canvas>
+              <Canvas className="rounded-lg">
                 <ambientLight intensity={1} />
-                <directionalLight position={[3, 2, 1]} />
+                <directionalLight position={[0, 2, 10]} />
 
                 <Center>
-                    <Suspense fallback={CanvasLoader}>
+                    <Suspense fallback={<CanvasLoader/>}>
                         <group scale={2}
                         // position={[-5, 1.2, -7]}
                         // rotation={[0.02, -0.25, 0]}
@@ -106,6 +107,7 @@ const About = () => {
                         rotation={[0, 0, 0]}
                         >
                             <Dtu/>
+                            
                         </group>
                     </Suspense>
                 </Center>
