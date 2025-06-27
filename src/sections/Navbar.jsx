@@ -68,7 +68,7 @@ const Navbar = () => {
 
 
     
-    <header className='sm:border border-neutral-200 sm:rounded-full fixed backdrop-blur-md sm:top-7 z-50  mx-auto max-w-7xl overflow-hidden bg-white/20 left-1/2 transform -translate-x-1/2 w-full'>
+    <header className='sm:border border-neutral-200 sm:rounded-full fixed backdrop-blur-md sm:top-7 z-50  mx-auto max-w-5xl overflow-hidden bg-white/20 left-1/2 transform -translate-x-1/2 w-full'>
       <div className='max-w-7xl mx-auto px-5 sm:px-10'>
         <div className='flex gap-5 justify-between py-3'>
             <div className='flex items-center gap-3'>

@@ -9,14 +9,14 @@ const App = () => {
   const [isProject, setIsProject] = useState('home');
 
   useEffect(()=>{
-    const projectOffset = document.getElementById('projects')?.offsetTop || 0;
-    const aboutOffset = document.getElementById('about')?.offsetTop || 0;
     
     const handleScroll = () => {
+      const projectOffset = document.getElementById('projects')?.offsetTop || 0;
+      const aboutOffset = document.getElementById('about')?.offsetTop || 0;
       localStorage.setItem('scrollY', window.scrollY.toString()); //save scroll position
       const scrollY = window.scrollY;
 
-      if(scrollY + window.innerHeight > aboutOffset +100){
+      if(scrollY + window.innerHeight > aboutOffset +500){
         setIsProject('about');
       }else if(scrollY + window.innerHeight > projectOffset +100){
         setIsProject('projects');
