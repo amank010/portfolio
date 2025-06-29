@@ -3,10 +3,12 @@ import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 
 import CanvasLoader from "../components/CanvasLoader.jsx";
-import Laptop from "../components/Laptop.jsx";
+
 // import { Leva, useControls } from 'leva'
 import MediaQuery, { useMediaQuery } from "react-responsive";
 import HeroCamera from "../components/HeroCamera.jsx";
+
+import LaptopNew from "../components/LaptopNew.jsx";
 
 const Hero = () => {
   // const x =useControls('Laptop',
@@ -76,18 +78,20 @@ const Hero = () => {
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 1, 30]} />
             <HeroCamera>
-              <Laptop
-                // scale={30}
-                // position={[0,0,0]}
-                // rotation={[0.2,1,0]}
+              {/* <Laptop
                 scale={isMobile ? 30 : 40}
                 rotation={[0, Math.PI / 7, 0]}
                 position={[-1, -3, 2]}
+              /> */}
+              <LaptopNew
+              scale={isMobile ? 30 : 40}
+              rotation={[0, Math.PI / 7, 0]}
+              position={[-1, -3, 2]}
               />
             </HeroCamera>
 
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} />
+            <ambientLight intensity={3} />
+            <directionalLight position={[5, 70, -10]} />
           </Suspense>
         </Canvas>
       </div>

@@ -15,13 +15,27 @@ const Projects = () => {
               Full Stack E-Commerce Web App
             </h1>
 
-
+            <div className="relative w-full rounded-md overflow-hidden group">
+              
             <img
             onClick={()=>window.open("https://e-commerce-frontend-two-beta.vercel.app")}
-              className="cursor-pointer w-full rounded-md h-fit object-contain"
+              className="cursor-pointer w-full rounded-md object-contain"
               src="/assets/forever.png"
               alt=""
             />
+            {/* glass plane */}
+            <div className="absolute inset-0 opacity-0 hover:opacity-100  ease-in-out flex items-center justify-center gap-4 translate-y-5 hover:translate-y-0 transition-transform duration-500 ">
+            <div className="backdrop-blur-md border border-neutral-200 bg-white/20 rounded-xl p-10 gap-4 shadow-2xl flex">
+            <img src="/assets/react.svg" className="h-10 w-10"  alt="" />
+            <img src="/assets/tailwindcss.png" className="h-10 w-10"  alt="" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" className="h-10 w-10"  alt="" />
+            <img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21~bgwhite.svg" className="h-10 w-10"  alt="" />
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" className="h-10 w-10"  alt="" />
+
+            </div>
+
+            </div>
+             </div>
 
             <div className="">
               <div className="flex justify-between my-2">
